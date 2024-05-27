@@ -1,0 +1,170 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    },
+    {
+      "id": "3f64",
+      "title": "test title",
+      "views": 10
+    },
+    {
+      "id": "c697",
+      "title": "test AAAAAAA",
+      "views": 10
+    }
+  ],
+  "classrooms": [
+    {
+      "id": "1",
+      "name": "Aula 1",
+      "size": "10"
+    },
+    {
+      "id": "2",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "3",
+      "name": "Aula 3",
+      "size": "1"
+    },
+    {
+      "id": "4",
+      "name": "Aula 4",
+      "size": "1"
+    },
+    {
+      "id": "5",
+      "name": "Aula 5",
+      "size": "1"
+    },
+    {
+      "id": "6",
+      "name": "Aula 6",
+      "size": "1"
+    },
+    {
+      "id": "7",
+      "name": "Aula 7",
+      "size": "1"
+    },
+    {
+      "id": "8",
+      "name": "Aula 8",
+      "size": "1"
+    },
+    {
+      "id": "9",
+      "name": "Aula 9",
+      "size": "1"
+    },
+    {
+      "id": "10",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "11",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "12",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "13",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "14",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "15",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "16",
+      "name": "Aula 2",
+      "size": "1"
+    },
+    {
+      "id": "17",
+      "name": "a title",
+      "size": 100
+    },
+    {
+      "id": "18",
+      "name": "another title",
+      "size": 200
+    },
+    {
+      "id": "19",
+      "name": "test title",
+      "size": 10
+    },
+    {
+      "id": "19",
+      "name": "test AAAAAAA",
+      "size": 10
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Lorenzo",
+      "lastname": "De Angelis"
+    },
+    {
+      "id": "2",
+      "name": "Matteo",
+      "lastname": "Bonelli",
+      "dateOfBirth": "1998-11-07T23:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Niccolò",
+      "lastname": "De Angelis"
+    },
+    {
+      "id": "4",
+      "name": "Alessia",
+      "lastname": "De Angelis"
+    },
+    {
+      "id": "5290",
+      "name": "MArco",
+      "lastname": "Rossi"
+    },
+    {
+      "id": "4c5e",
+      "name": "test",
+      "lastname": "test",
+      "dateOfBirth": "2006-05-09T22:00:00.000Z"
+    }
+  ], 
+  "settings": {
+    "enableMenu": {
+      "enableSubjects": true,
+      "enableClassrooms": false,
+      "enableUsers": false
+    },
+    "lng": "de",
+    "dark": false
+
+  }
+}

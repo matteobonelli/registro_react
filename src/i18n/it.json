@@ -1,0 +1,19 @@
+{
+    "translation": {
+      "Welcome to React": "Benvenuto su React e react-i18next",
+      "titoloAula": "Questa {{aula}} è composta da ",
+      "size_one": "posto",
+      "size_other": "posti",
+      "sizeWithCount_one": "{{count}} posto",
+      "sizeWithCount_other": "{{count}} posti",
+      "name": "Nome",
+      "lastname": "Cognome",
+      "edit": "Modifica",
+      "view": "Visualizza",
+      "add": "Aggiungi",
+      "save": "Savla",
+      "fieldRequired": "Campo obbligatorio",
+      "dateOfBirth": "Data di nascita"
+
+    }
+  }
