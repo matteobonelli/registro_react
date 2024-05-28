@@ -1,6 +1,22 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Settings } from '../../components/languageSwitcher/LanguageSwitcher'
 
-const Settings: React.FC = () => {
+const SettingsComponent: React.FC = () => {
+
+  const [data, setData] = useState<Settings>()
+
+  const getSettings = () => {
+    axios.get(`${import.meta.env.VITE_BASE_URL}/settings`).then((res: any) => 
+      {        
+        setData(res)
+      }
+    )
+  }
+
+  useEffect(() => {
+    getSettings();
+  }, []);
 
   //useAuthGuard(false)
 
@@ -9,4 +25,5 @@ const Settings: React.FC = () => {
   )
 }
 
-export default Settings
+export default SettingsComponent
+

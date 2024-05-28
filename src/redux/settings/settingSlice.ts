@@ -4,9 +4,9 @@ import axios, { AxiosResponse } from 'axios'
 
 export const getSettings = createAsyncThunk('getSettings',
     async () => {
-      //const response = await axios.get<EnableMenu>('http://localhost:3000/settings')
-      const response = fetch('http://localhost:3000/settings')
-      return await (await response).json() as SettingsState
+      // //const response = await axios.get<EnableMenu>('http://localhost:3000/settings')
+      // const response = fetch('http://localhost:3000/settings')
+      // return await (await response).json() as SettingsState
     },
   )
 
@@ -43,13 +43,13 @@ export const settingsSlice = createSlice({
       state.loading = 'pending'
     })
 
-    builder.addCase(getSettings.fulfilled, (state, action: PayloadAction<SettingsState>) => {
-      console.log(action.payload);
-        state.loading = 'succeeded'
-        state.enableMenu = action.payload.enableMenu
-        state.lng = action.payload.lng
-        state.dark = action.payload.dark
-      })
+    // builder.addCase(getSettings.fulfilled, (state, action: PayloadAction<SettingsState>) => {
+    //   console.log(action.payload);
+    //     state.loading = 'succeeded'
+    //     state.enableMenu = action.payload.enableMenu
+    //     state.lng = action.payload.lng
+    //     state.dark = action.payload.darks
+    //   })
   },
 })
 
