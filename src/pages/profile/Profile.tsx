@@ -1,15 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { User } from '../users/Users';
 
 interface ProfileProps {
-}
-
-interface User {
-  id: string;
-  name: string;
-  lastname: string;
-
 }
 
 
@@ -19,7 +13,7 @@ const Profile: React.FC<ProfileProps> = () => {
   const [data, setData] = useState<User>()
 
   const getUser = () => {
-    axios.get(`${import.meta.env.VITE_BASE_URL}/profile/${username}`).then((res: any) => 
+    axios.get(`${import.meta.env.VITE_BASE_URL}/users/${username}`).then((res: any) => 
       {        
         setData(res)
       }
@@ -36,7 +30,7 @@ const Profile: React.FC<ProfileProps> = () => {
     <>
     <div>Profile  </div>
       {
-        data && data?.name
+        data && data?.firstName
       }
     </>
   )

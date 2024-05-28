@@ -3,6 +3,7 @@ import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle }
 import { HiMenuAlt3 } from "react-icons/hi";
 import LanguageSwitcher from '../../components/languageSwitcher/LanguageSwitcher';
 import StyleSwitcher from '../../components/styleSwitcher/StyleSwitcher';
+import AvatarDropdown from './AvatardDropdown';
 
 interface NavbarLayoutProps {
   toggleSidebar: () => void
@@ -25,6 +26,7 @@ const NavbarLayout: React.FC<NavbarLayoutProps> = ({
       </div>
 
     <NavbarToggle />
+    <AvatarDropdown />
     <StyleSwitcher />
     <LanguageSwitcher />
   </Navbar>

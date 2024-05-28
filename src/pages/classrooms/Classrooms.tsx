@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 export interface ClassroomProps {
   id: string
   name: string
-  size: string
+  isActive: boolean
 }
 
 const Classrooms: React.FC = () => {
@@ -18,7 +18,7 @@ const Classrooms: React.FC = () => {
   const { t } = useTranslation();
 
   const getClassrooms = () => {
-    axios.get(`${import.meta.env.VITE_BASE_URL}/classrooms`).then((res: any) => 
+    axios.get(`${import.meta.env.VITE_BASE_URL}/classroom`).then((res: any) => 
       {        
         setData(res)
       }
@@ -59,9 +59,8 @@ const Classrooms: React.FC = () => {
           <TableHeadCell className="p-4">
             <Checkbox />
           </TableHeadCell>
-          <TableHeadCell>Id</TableHeadCell>
           <TableHeadCell>Nome</TableHeadCell>
-          <TableHeadCell>Size</TableHeadCell>
+          <TableHeadCell>Disponibilità</TableHeadCell>
           <TableHeadCell>
             <span className="sr-only">Edit</span>
           </TableHeadCell>
@@ -72,11 +71,10 @@ const Classrooms: React.FC = () => {
           <TableCell className="p-4">
             <Checkbox />
           </TableCell>
-          <TableCell>{item.id}</TableCell>
           <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            {item.name}
+            <Link to={item.name}>{item.name}</Link>
           </TableCell>
-          <TableCell>{item.size}</TableCell>
+          <TableCell>{item.isActive ? "Attiva" : "Non attiva"}</TableCell>
           <TableCell>
             <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
               Edit

@@ -14,13 +14,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { formatDateValue } from "../../utils/dateUtils";
 
 export interface User {
-  id: string;
-  name: string;
-  lastname: string;
-  dateOfBirth: Date;
+  id: string
+  active_class?: number[]
+  birth_date: string
+  email: string
+  firstName: string
+  lastName: string
+  user_detail_id?: number
+  user_type_id?: number
+  is_active?: boolean
 }
 
 const Users: React.FC = () => {
@@ -119,10 +123,10 @@ const Users: React.FC = () => {
                     />
                   </TableCell>
                   <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                    {item.name}
+                    {item.firstName}
                   </TableCell>
-                  <TableCell>{item.lastname}</TableCell>
-                  <TableCell>{formatDateValue(item.dateOfBirth)}</TableCell>
+                  <TableCell>{item.lastName}</TableCell>
+                  <TableCell>{(item.birth_date)}</TableCell>
                   <TableCell>
                     <div className="flex justify-around">
                       <Link

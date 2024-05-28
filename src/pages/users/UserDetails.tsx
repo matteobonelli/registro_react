@@ -64,7 +64,7 @@ const UserDetails: React.FC = () => {
   return (
     <>
         <div className='flex justify-between items-center py-5'>
-        <h1 className='text-xl font-bold'>{user?.name} {user?.lastname}</h1>
+        <h1 className='text-xl font-bold'>{user?.firstName} {user?.lastName}</h1>
         {!isEdit && <Button onClick={() => navigate('edit')}>{t('edit')}</Button>}
         </div>
 
@@ -76,10 +76,10 @@ const UserDetails: React.FC = () => {
                 </div>
                 <TextInput 
                     id="name" 
-                    {...register('name', { required: {value: true, message: "required"}})} 
-                    color={errors.name ? 'failure': ''}
+                    {...register('firstName', { required: {value: true, message: "required"}})} 
+                    color={errors.firstName ? 'failure': ''}
                     helperText={
-                        errors.name ? <span>{t('fieldRequired')}</span> : null
+                        errors.firstName ? <span>{t('fieldRequired')}</span> : null
                     }
                     disabled={!isEdit}
                 />
@@ -91,17 +91,31 @@ const UserDetails: React.FC = () => {
                 </div>
                 <TextInput 
                     id="lastname" 
-                    {...register('lastname', { required: {value: true, message: "required"}})} 
-                    color={errors.lastname ? 'failure': ''}
+                    {...register('lastName', { required: {value: true, message: "required"}})} 
+                    color={errors.lastName ? 'failure': ''}
                     helperText={
-                        errors.lastname ? <span>{t('fieldRequired')}</span> : null
+                        errors.lastName ? <span>{t('fieldRequired')}</span> : null
                     }
                     disabled={!isEdit}
 
                 />
             </div>
 
+            <div>
+                <div className="my-2 block">
+                <Label htmlFor="email" value={t('lastname')} />
+                </div>
+                <TextInput 
+                    id="email" 
+                    {...register('email', { required: {value: true, message: "required"}})} 
+                    color={errors.email ? 'failure': ''}
+                    helperText={
+                        errors.email ? <span>{t('fieldRequired')}</span> : null
+                    }
+                    disabled={!isEdit}
 
+                />
+            </div>
 
             <div>
                 <div className="my-2 block">
@@ -109,7 +123,7 @@ const UserDetails: React.FC = () => {
                 </div>
 
                 <Controller
-                    name="dateOfBirth"
+                    name="birth_date"
                     control={control}
                     rules={{
                         validate: {
@@ -126,11 +140,11 @@ const UserDetails: React.FC = () => {
                             language="it-IT"
                             maxDate={dayjs().subtract(18, 'year').toDate()}
                             minDate={dayjs().subtract(99, 'year').toDate()}
-                            value={formatDateValue(field.value)}
+                            value={(field.value)}
                             onSelectedDateChanged={(date) => field.onChange(date)}
-                            color={errors.dateOfBirth ? 'failure': ''}
+                            color={errors.birth_date ? 'failure': ''}
                             helperText={
-                                errors.dateOfBirth ? <span>Data non valida</span> : "Min 18 anni, max 99 anni"
+                                errors.birth_date ? <span>Data non valida</span> : "Min 18 anni, max 99 anni"
                             }
                             showTodayButton={false}
                             showClearButton={false}

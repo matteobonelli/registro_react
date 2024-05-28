@@ -1,37 +1,69 @@
-import React from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Checkbox, Table } from "flowbite-react";
+"use client";
+
+
+export interface Subject {
+  id: number
+  description: string
+  name: string
+}
 
 const Subjects: React.FC = () => {
+  const [subjects, setSubjects] = useState<Subject[]>()
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    control,
-    formState: {errors}
-} = useForm();
+  const getSubjects = () => {
+    axios.get<Subject[]>(`${import.meta.env.VITE_BASE_URL}/subjects`).then((res : any) =>{
+      setSubjects(res);
+      console.log(res)
+    })
+  }
 
-  const dataForm = watch();
+  // const user = false;
 
-  const getDataForm = () => console.log(dataForm);
-  
+  // useAuthGuard(user)
 
- const onSubmit: SubmitHandler<any> = (data) => console.log(data)
+  useEffect(() => {
+    getSubjects();
+  }, []);
 
   return (
     <>
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register('name', {required: true})}/>
-      {errors.name && <span>This field is required</span>}
-      <br />
-      <input type="text" {...register('lastname')}/>
-      
-      <button type="submit">Invia</button>
-
-    </form>
-
-
-    <button onClick={() => getDataForm()}>getDataForm</button>
+    <div className="overflow-x-auto">
+        <Table hoverable>
+          <Table.Head>
+            <Table.HeadCell className="p-4">
+              <Checkbox />
+            </Table.HeadCell>
+            <Table.HeadCell>Materia</Table.HeadCell>
+            <Table.HeadCell>Acronimo</Table.HeadCell>
+            <Table.HeadCell>
+              <span className="sr-only">Modifica</span>
+            </Table.HeadCell>
+          </Table.Head>
+          {
+            subjects?.map((subject : Subject, index: number) => {
+              return <Table.Body key={index} className="divide-y">
+                  <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                    <Table.Cell className="p-4">
+                      <Checkbox />
+                    </Table.Cell>
+                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                      {subject.description}
+                    </Table.Cell>
+                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{subject.name}</Table.Cell>
+                    <Table.Cell>
+                      <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                        Modifica
+                      </a>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
+            }) 
+          }
+        </Table>
+    </div>
     </>
   )
 }
