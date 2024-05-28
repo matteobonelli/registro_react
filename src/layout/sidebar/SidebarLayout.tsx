@@ -55,25 +55,25 @@ const SidebarLayout: React.FC<SidebarLayoutProps> = ({
                   <Link className="btn-sidebar" to="/">
                     <HiChartPie /> Dashboard
                   </Link>
-                  {enableMenu?.enableClassrooms && (
+                  {(
                     <Link className="btn-sidebar" to="/classrooms">
                       Aule
                     </Link>
                   )}
-                  {enableMenu?.enableSubjects && (
+                  { (
                     <Link className="btn-sidebar" to="/subjects">
                       Materie
                     </Link>
                   )}
 
-                  {enableMenu?.enableUsers && (
+                  { (
                     <Link className="btn-sidebar" to="/users">
                       Utenti
                     </Link>
                   )}
                 </Sidebar.ItemGroup>
                 <Sidebar.ItemGroup>
-                  {false && (
+                  { (
                     <Link className="btn-sidebar" to="/settings">
                       Settings
                     </Link>
