@@ -20,11 +20,17 @@ ChartJS.register(
     Legend
   );
 
-  export interface LabelsData {
-    usersByYears: { year: number, count: number }[];
-    usersByCity: { city: string, count: number}[];
+  export interface UsersByYearsResult {
+    year: number,
+    count: number
   }
-  
+
+  export interface LabelsData {
+    usersByYears: UsersByYearsResult[];
+    usersByCity: { city: string, count: number}[];
+    usersBySchoolClasses: { classroom: string, count: number}[];
+  }
+
   export const options = {
     responsive: true,
     plugins: {
@@ -46,11 +52,11 @@ const BarChart : React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const dataYears = {
-    labels: labels?.usersByYears.map((item : any) => item.year),
+    labels: labels?.usersByYears.map((item : UsersByYearsResult) => item.year),
     datasets: [
       {
         label: 'Utenti',
-        data: labels?.usersByYears.map((item : any) => item.count),
+        data: labels?.usersByYears.map((item : UsersByYearsResult) => item.count),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
@@ -62,6 +68,17 @@ const BarChart : React.FC = () => {
       {
         label: 'Utenti',
         data: labels?.usersByCity.map((item : any) => item.count),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+    ],
+  };
+
+  const dataClassRoom = {
+    labels: labels?.usersBySchoolClasses.map((item : any) => item.className),
+    datasets: [
+      {
+        label: 'Utenti',
+        data: labels?.usersBySchoolClasses.map((item : any) => item.count),
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
@@ -94,6 +111,7 @@ const BarChart : React.FC = () => {
     <>
     <Bar options={options} data={dataYears} />
     <Bar options={options} data={dataCity} />
+    <Bar options={options} data={dataClassRoom} />
     </>
   )
 }
