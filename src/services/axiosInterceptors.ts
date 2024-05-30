@@ -13,7 +13,7 @@ export default function AxiosInterceptor() {
     // Add a response interceptor
     axios.interceptors.response.use(function (response: AxiosResponse<any, any>) {
         
-        return response.data;
+        return response;
       
     }, function (error: AxiosError) {
 

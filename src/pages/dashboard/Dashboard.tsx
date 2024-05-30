@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Link, useBlocker, useNavigate } from 'react-router-dom';
 import Counter from '../../components/counter/counter';
+import BarChart from '../../components/charts/BarChart';
 
 const Dashboard: React.FC = () => {
   
@@ -47,6 +48,7 @@ const Dashboard: React.FC = () => {
     <Button className="mt-5" onClick={() => handleClick('/subjects')}>Vai a subjects</Button>
     {showButton && <Button className="mt-5" onClick={() => blocker.proceed}>Vai avanti</Button>} */}
     <Counter />
+    <BarChart />
 
 </>
   )
